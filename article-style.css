@@ -1,0 +1,73 @@
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+  /* margin: 0; */
+  font-family: 'Comfortaa', cursive;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the content */
+.content {
+    background-color: #ddd;
+    padding: 10px;
+   
+    
+}
+
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+h2 {
+    font-family: 'Rammetto One', cursive;
+    
+}
+button{
+    border: transparent;
+    background: transparent;
+    outline: transparent;
+}
+
+.footer :hover {
+    border-bottom: 2px solid #2d3436;
+    cursor: pointer;
+}
+
+.article {
+    line-height: 1.6;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+img{
+    align-content: center;
+}
+    

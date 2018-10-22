@@ -1,0 +1,16 @@
+.card-img-top{
+  height: 20%;
+  margin-bottom: 3%;
+}
+.carousel-indicators{
+  margin-bottom: -3%;
+}
+.readMore{
+width: 25%;
+margin-bottom: 3%;
+margin-left: 39%;
+color: black;
+background-color: white;
+border-style: solid;
+box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
+}
