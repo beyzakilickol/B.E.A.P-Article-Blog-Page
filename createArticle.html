@@ -1,0 +1,70 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="userPage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title> Publish An Article </title>
+</head>
+  <body>
+
+    <div id="userContainer">
+      <div id="userContainer1">
+        <div class="icon-bar">
+          <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+    <h2> Publish an  Article </h2> <label id="signOut"> Sign Out </label>
+    <p> Complete the sections below to publish an article </p>
+
+  </div>
+      <form action="/action_page.php" method="post" >
+      <label> Choose a Category : </label>
+        <select name= "Category" required>
+          <option value="Sports">Sports</option>
+          <option value="Health">Health</option>
+          <option value="Techs">Techs</option>
+          <option value="Culture">Culture</option>
+          <option value="Education">Education</option>
+          <option value="Food"> Food</option>
+          <option value="Other"> Other </option>
+        </select>
+
+    <br>
+      <label> Description : </label>
+      <input type="text" placeholder="Enter Article Summary" required>
+    <br>
+      <label> Insert an Image : </label>
+        <input type="file" name="pic" accept="image/*" required>
+
+    <br>
+      <label> Enter Article Title : </label>
+      <input type="text" placeholder="Title of Article" minLength="4" required>
+
+    </br>
+      <textarea placeholder="Enter Article Here....." rows="50" cols="100" minLength="200" required></textarea>
+    <br>
+      <input type="submit" value="Post" required>
+      </form>
+
+
+  <div id="footer">
+    <a href="#"> Contact Us </a>  | <a href="#"> Privacy Policy </a> | <a href="#"> Terms of Services </a>
+  </div>
+
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
+  <script>
+    var config = {
+    apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
+    authDomain: "beap-44ce7.firebaseapp.com",
+    databaseURL: "https://beap-44ce7.firebaseio.com",
+    projectId: "beap-44ce7",
+    storageBucket: "beap-44ce7.appspot.com",
+    messagingSenderId: "920632593176"
+  };
+  firebase.initializeApp(config);
+</script>
+</html>
