@@ -1,15 +1,40 @@
-const database = firebase.database();
+let articleDescription = document.getElementById('articleDescription')
+let articleUrl = document.getElementById('articleUrl')
+let articleTitle = document.getElementById('articleTitle')
+let articleBody = document.getElementById('articleBody')
+let submitButton = document.getElementById('submitButton')
+let userContainer3 = document.getElementById('userContainer3')
+let articleForm = document.getElementById('articleForm')
 
-// root is database.ref
+function alertAfterPost() {
+ setTimeout(function(){
+   alert("Your Article has Been Submitted")
+ });
+}
 
-let articlesRef = database.ref("articles")
+function dateTimeNow() {
+ var dateTime = new Date().toLocaleString()
+ return dateTime
+}
 
-// child node of articlesRef (articles)
-// and that child node will have a unique id
-let articleRef = articlesRef.push()
+submitButton.addEventListener('click', function() {
+ let title = articleTitle.value
+ let url = articleUrl.value
+ let description = articleDescription.value
+ let body = articleBody.value
+ articleForm.reset()
 
-articleRef.set({
-  title : "Hello World",
-  description : "Welcome to my article! "
-  //publishedDate : Date.now().toString
+ const database = firebase.database()
+ let currentUser = firebase.auth().currentUser
+
+ let userRef = database.ref("users").child(currentUser.uid).child("articles").push()
+ .set({
+   title : title,
+   img : url,
+   description : description,
+   article : body,
+   publishedDate : dateTimeNow()
+
+})
+alertAfterPost()
 })

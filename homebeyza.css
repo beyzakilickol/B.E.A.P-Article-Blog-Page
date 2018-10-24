@@ -1,3 +1,8 @@
+/* #divToStyle{
+  position: fixed;
+  z-index: 1;
+
+} */
 #header{
   display:flex;
   position: relative;
@@ -11,6 +16,9 @@
 }
 .login-btn{
   margin-top: 7px;
+  height: fit-content;
+  border-style: none;
+  background-color:white;
 }
 
 .dropdown{
@@ -34,6 +42,7 @@ color:black !important;
   border-radius: 5px 5px 5px 5px;
   height:30px;
   background-color: white;
+  margin-right: 5px;
 }
 .nav-item{
   margin-left: 20px;
@@ -46,10 +55,189 @@ color:black !important;
 }
 .py-3{
   transform: scale(0.8);
+  margin-left: 1% !important;
+  margin-top: -10% !important;
 }
 @media (max-width:510px){
   #logo-container{
     transform: scale(0.8);
       margin-top: 30px;
+  }
+}
+.card-img-top{
+  height: 20%;
+  margin-bottom: 3%;
+}
+.carousel-indicators{
+  margin-bottom: -3%;
+}
+.readMore{
+width: 100px;
+margin-bottom: 3%;
+color: black !important;
+background-color: white !important;
+border-style: solid;
+box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
+
+}
+a{
+  color:black !important;
+}
+#carouselExampleIndicators{
+/* margin-top: 100px; */
+margin-left: 10%;
+margin-right: 10%;
+/* margin-top: 1%; */
+margin-bottom: 10%;
+transform: scale(0.8);
+position:relative;
+}
+.carousel-control-prev{
+  margin-left: -13%;
+}
+.carousel-control-next{
+  margin-right: -13%;
+}
+
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 30px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 30px;
+  color: black;
+}
+@media (max-width: 1073px){
+#carouselExampleIndicators{
+  transform: scale(1);
+}
+}
+.dropdown-menu{
+  left:-20px !important;
+}
+/* ---------------- */
+#logInCard{
+  display:flex;
+  flex-direction: column;
+  background-color: #e6e6e6;
+  width: 35%;
+  border-radius: 10px;
+  padding: 30px;
+  max-height: 50%;
+  box-shadow: 4px 4px 4px 4px rgb(153, 153, 153);
+  position: absolute;
+  left: 50%;
+  top: 200;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%);
+position: relative;
+
+}
+#nameTextBox{
+  margin-bottom: 20px;
+  width: 53%;
+}
+#registerCard{
+  display:flex;
+  position:relative;
+
+  flex-direction: column;
+  background-color: #e6e6e6;
+  padding: 30px;
+  border-radius: 10px;
+  width: 35%;
+  max-height: 50%;
+  box-shadow: 4px 4px 4px 4px rgb(153, 153, 153);
+  position: relative;
+  left: 50%;
+  top: 200;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%)
+}
+.fas{
+  position:absolute;
+  right: 10;
+  top: 7;
+}
+#emailTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#passwordTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#registerButton{
+  margin-top: 5%;
+
+}
+#loginEmailTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#loginPasswordTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+
+.style{
+    margin-top: 5%;
+    transform: scale(0.8);
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, white, black, white);
+    box-shadow: 0 4px 15px 0 black;
+    /* margin-left: 24%; */
+}
+
+.style:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.style:focus {
+    outline: none;
+}
+.errorMessage{
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+@media (max-width: 550px) {
+
+
+  #registerCard{
+    margin-bottom: 10%;
+    width:80%;
+  }
+  #logInCard{
+    width:80%
   }
 }
