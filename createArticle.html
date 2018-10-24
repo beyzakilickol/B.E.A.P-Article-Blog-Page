@@ -1,10 +1,32 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="userPage.css">
+  <link rel="stylesheet" type="text/css" href="createArticle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title> Publish An Article </title>
 </head>
   <body>
+    <div id="header">
+      <img id="logo-container" src="BEAPlogo.png"/>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand active" href="#">Home<span class="sr-only">(current)</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#">Sports</a>
+          <a class="nav-item nav-link" href="#">Health</a>
+          <a class="nav-item nav-link" href="#">Tech</a>
+          <a class="nav-item nav-link" href="#">Culture</a>
+          <a class="nav-item nav-link" href="#">Education</a>
+          <a class="nav-item nav-link" href="#">Food</a>
+          <a class="nav-item nav-link" href="#">Others</a>
+        </div>
+      </div>
+    </nav>
 
     <div id="userContainer">
       <div id="userContainer1">
@@ -14,11 +36,12 @@
           <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
           <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
         </div>
+
     <h2> Publish an  Article </h2> <label id="signOut"> Sign Out </label>
     <p> Complete the sections below to publish an article </p>
-
   </div>
-      <form action="/action_page.php" method="post" >
+        <div id="userContainer3">
+          <form id="articleForm">
       <label> Choose a Category : </label>
         <select name= "Category" required>
           <option value="Sports">Sports</option>
@@ -32,20 +55,22 @@
 
     <br>
       <label> Description : </label>
-      <input type="text" placeholder="Enter Article Summary" required>
+      <input id="articleDescription" type="text" placeholder="Enter A Summary" required>
     <br>
-      <label> Insert an Image : </label>
-        <input type="file" name="pic" accept="image/*" required>
-
+      <label> Insert an URL Image : </label>
+      <input type="url" name="url" id="articleUrl" placeholder="https://example.com" required>
     <br>
       <label> Enter Article Title : </label>
-      <input type="text" placeholder="Title of Article" minLength="4" required>
-
-    </br>
-      <textarea placeholder="Enter Article Here....." rows="50" cols="100" minLength="200" required></textarea>
+      <input id="articleTitle" type="text" placeholder="Title of Article" minLength="4" required>
     <br>
-      <input type="submit" value="Post" required>
-      </form>
+      <textarea id="articleBody" placeholder="Enter Article Here....." rows="50" cols="100" minLength="100" required></textarea>
+    <br>
+      <button id="submitButton" type="button" required>Post Article</button>
+    </form>
+        </div>
+      </div>
+
+
 
 
   <div id="footer">
@@ -53,9 +78,11 @@
   </div>
 
   </body>
-  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-functions.js"></script>
   <script>
     var config = {
     apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
@@ -67,4 +94,5 @@
   };
   firebase.initializeApp(config);
 </script>
+<script src="createArticle.js"></script>
 </html>
