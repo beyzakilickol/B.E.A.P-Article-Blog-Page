@@ -2,6 +2,7 @@
 * {
     box-sizing: border-box;
     
+    
 }
 
 body {
@@ -12,51 +13,65 @@ body {
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color:white;
 }
 
 /* Style the topnav links */
-.topnav a {
-    float: left;
+.topnav button {
+    float: right;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px;
     text-decoration: none;
+    margin-right: 20px;
+    text-decoration: none;
+    border: transparent;
+    font-size: 16px;
+    font-family: inherit;
+    outline: 0;
 }
 
 /* Change color on hover */
-.topnav a:hover {
-    background-color: #ddd;
+.topnav button:hover {
+    border-bottom: 2px solid #74b9ff;
     color: black;
+    cursor: pointer;
 }
 
 /* Style the content */
 .content {
-    background-color: #ddd;
-    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+   
    
     
 }
 
 /* Style the footer */
 .footer {
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 10px;
+    
 }
 
 h2 {
     font-family: 'Rammetto One', cursive;
+    text-align: center;
+    color: #74b9ff;
     
 }
-button{
+.footer button {
     border: transparent;
-    background: transparent;
+    background: #74b9ff;
     outline: transparent;
+    font-size: 16px;
+    align-content: center;
+    padding: 10px;
+    font-family: inherit;
 }
 
-.footer :hover {
-    border-bottom: 2px solid #2d3436;
+.footer button:hover {
     cursor: pointer;
 }
 
@@ -67,7 +82,35 @@ button{
     padding-left: 100px;
     padding-right: 100px;
 }
-img{
-    align-content: center;
+#articleImage {
+    width: 100%;
 }
-    
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#yourArticles{
+    margin-top: 60px;
+    padding-bottom: 20px;
+    font-family: inherit;
+    border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+#logo-container {
+    transform: scale(0.7);
+}
+
+h5 {
+    color:#74b9ff;
+}
+
+.user-profile{
+    margin-top: 50px;
+    margin-right: 100px;
+}
+
+#profile-container{
+    height: 3%;
+}
