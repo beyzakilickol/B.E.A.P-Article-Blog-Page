@@ -1,3 +1,111 @@
+@import "compass/css3";
+
+
+#header{
+  display:flex;
+  position: relative;
+  }
+.sectionDiv{
+  width: 84%;
+  height: 81% !important;
+  display: flex !important;
+  flex-direction: column !important;
+
+}
+.row{
+  height: 100%;
+}
+.px-3{
+  font-size: 15px !important;
+}
+.leftSideBar{
+  height: 100%;
+}
+.rightSideCard{
+
+  /* margin-bottom: 15% !important; */
+  border-style: none !important;
+}
+
+.rightSideCardMainDiv{
+  display: flex !important;
+  flex-direction: column !important;
+  margin-right: 11%;
+  /* margin-right: 15% !important; */
+  float: right;
+}
+.MainDivBelowSlides{
+  transform: scale(0.84);
+  display: flex;
+  flex-direction: row;
+  margin-top: -8%;
+}
+
+#profile-container{
+  display:flex;
+  height: 3%;
+  position: absolute;
+  right: 3;
+  top:4;
+}
+.login-btn{
+  margin-top: 7px;
+  height: fit-content;
+  border-style: none;
+  background-color:white;
+}
+.card{
+
+}
+.leftSideBar{
+  height: 34% !important;
+}
+.card-deck{
+  opacity: 1.5;
+}
+.dropdown{
+  box-shadow: 0px 0px 0px 0px;
+  margin-top: 3px;
+}
+.user-profile{
+background-color:white !important;
+border-style:none !important;
+color:black !important;
+
+}
+.navbar{
+  width: 100%;
+    height: 7%;
+    margin-top: 60px;
+}
+#get-started{
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px 5px 5px 5px;
+  height:30px;
+  background-color: white;
+}
+.nav-item{
+  margin-left: 20px;
+}
+
+.card-block{
+  font-size: 12px;
+  margin-top: 10px;
+}
+.py-3{
+  transform: scale(0.8);
+  /* margin-left: 5% !important; */
+  /* margin-top: -10% !important; */
+  width: 100% !important;
+  margin-top: -45px !important;
+}
+@media (max-width:510px){
+  #logo-container{
+    transform: scale(0.8);
+      margin-top: 30px;
+  }
+}
 .card-img-top{
   height: 20%;
   margin-bottom: 3%;
@@ -6,11 +114,204 @@
   margin-bottom: -3%;
 }
 .readMore{
-width: 25%;
+width: 100px;
 margin-bottom: 3%;
-margin-left: 39%;
-color: black;
-background-color: white;
+color: black !important;
+background-color: white !important;
 border-style: solid;
 box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
+}
+.leftSideButton{
+  width: 100px;
+  margin-bottom: 3%;
+  color: black !important;
+  background-color: white !important;
+  font-size: 16px;
+  border-style: none;
+  box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
+}
+#carouselExampleIndicators{
+/* margin-top: 100px; */
+margin-left: 10%;
+margin-right: 10%;
+/* margin-top: 1%; */
+margin-bottom: 10%;
+transform: scale(0.8);
+position:relative;
+}
+.carousel-control-prev{
+  margin-left: -13%;
+}
+.carousel-control-next{
+  margin-right: -13%;
+}
+
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 30px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 30px;
+  color: black;
+}
+@media (max-width: 1073px){
+#carouselExampleIndicators{
+  transform: scale(1);
+}
+}
+.dropdown-menu{
+  left:-20px !important;
+}
+/* ---------------- */
+#logInCard{
+  display:flex;
+  flex-direction: column;
+  background-color: #e6e6e6;
+  width: 35%;
+  border-radius: 10px;
+  padding: 30px;
+  max-height: 50%;
+  box-shadow: 4px 4px 4px 4px rgb(153, 153, 153);
+  position: absolute;
+  left: 50%;
+  top: 200;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%);
+position: relative;
+
+}
+#nameTextBox{
+  margin-bottom: 20px;
+  width: 53%;
+}
+#registerCard{
+  display:flex;
+  position:relative;
+
+  flex-direction: column;
+  background-color: #e6e6e6;
+  padding: 30px;
+  border-radius: 10px;
+  width: 35%;
+  max-height: 50%;
+  box-shadow: 4px 4px 4px 4px rgb(153, 153, 153);
+  position: relative;
+  left: 50%;
+  top: 200;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%)
+}
+.fas{
+  position:absolute;
+  right: 10;
+  top: 7;
+}
+#emailTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#passwordTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#registerButton{
+  margin-top: 5%;
+
+}
+#loginEmailTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+#loginPasswordTextBox{
+  margin-bottom: 5%;
+  height: 30px;
+  width: 100%;
+}
+.style{
+    margin-top: 5%;
+    transform: scale(0.8);
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, white, black, white);
+    box-shadow: 0 4px 15px 0 black;
+    /* margin-left: 24%; */
+}
+
+.style:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.style:focus {
+    outline: none;
+}
+.errorMessage{
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+@media (max-width: 550px) {
+
+
+  #registerCard{
+    margin-bottom: 10%;
+    width:80%;
+  }
+  #logInCard{
+    width:80%
+  }
+}
+#indicator1{
+  background-color: black !important;
+  opacity: 0.3;
+}
+#indicator2{
+  background-color: black !important;
+  opacity: 0.3;
+  margin-left: 10px;
+}
+#indicator3{
+  background-color: black !important;
+  opacity: 0.3;
+  margin-left: 10px;
+}
+/* #indicator1:hover, #indicator2:hover, #indicator3:hover {
+    color: yellow;
+} */
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;
+  background-color:#737982;
+  height: 1px;
+}
+.card-text{
+  font-size: 19px !important;
 }
