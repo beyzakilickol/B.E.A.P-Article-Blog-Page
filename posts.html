@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>BEAP Your articles</title>
+  
+  
+  <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="article-style.css">
+   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Rammetto+One" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="homebeyza.css"/>
+</head>
+<body>
+<div id="header container">
+        <a href="indexbeyza.html"><img id="logo-container" src="BEAPlogo.png"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
+  <div id="profile-container">
+    <div class="dropdown">
+        <img src="" alt="">
+        <button  class=" user-profile btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Your profile
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="createArticle.html">Create a post</a>
+            <a class="dropdown-item" href="#">View posted articles</a>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+      <h3 id="yourArticles">Your Articles</h3>
+      <div id="articles">
+
+      </div>
+  </div>
+</div>
+
+<!-- =========================================================================== -->
+
+<!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
+<script>
+  var config = {
+  apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
+  authDomain: "beap-44ce7.firebaseapp.com",
+  databaseURL: "https://beap-44ce7.firebaseio.com",
+  projectId: "beap-44ce7",
+  storageBucket: "beap-44ce7.appspot.com",
+  messagingSenderId: "920632593176"
+};
+firebase.initializeApp(config);
+</script>
+<script src="homebeyza.js"></script>
+<script type="text/javascript" src="view-articles.js"></script>
+</body>
+</html>
