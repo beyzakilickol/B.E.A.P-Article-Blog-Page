@@ -94,6 +94,7 @@ firebase.auth().signOut().then(response => {
   login.style.display = "block"
   getStarted.style.display = "block"
   console.log("User is signed out")
+  window.location = "indexbeyza.html"
 
 }).catch(function(error){console.log("There is a problem")})
 })
@@ -140,7 +141,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 });
 //-------------------------------------------------------
-dropdownMenuButton.style.display = "none"
+
+//dropdownMenuButton.style.display = "none"
 logInCard.style.display ="none"
 registerCard.style.display ="none"
 login.addEventListener("click",function() {
