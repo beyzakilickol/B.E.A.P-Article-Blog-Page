@@ -38,11 +38,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function refreshUserArticles() {
 
-  articlesRef.on('value', function(snapshot){
 
+  articlesRef.on('value', function(snapshot){
+    articlesContainer.innerHTML = ""
 
       snapshot.forEach(function(item){
               if (item.val()){
+
                   var article = item.val()
                   var articleKey = item.key
                   article.fbKey = articleKey
@@ -53,12 +55,16 @@ function refreshUserArticles() {
                     <div>
 
                       <p>${article.title}</p>
-                      <button class="likeButton" id=${article.fbKey}>like</button>
+                      <strong>${article.likes}</strong>
+                      <button class="likeButton" id="${article.fbKey}">like</button>
                     </div>
 
 
 
                   `
+                  var likeButton = document.getElementById(article.fbKey)
+
+
                   if (article.userName === currentUsername) {
                     userArticles.push(article)
                   }
@@ -69,13 +75,21 @@ function refreshUserArticles() {
           })
 
 
-          var likeButtons = document.querySelector('.likeButton')
-          console.log(likeButtons)
 
-          if(allArticles.length){
-            likeArticle("-LPftXNUvsZ6RCTb1292")
-          }
-      })
+          $( ".likeButton" ).on( "click", function( e ) {
+            var key = e.target.id
+            likeArticle(key)
+
+          })
+
+
+          // if(allArticles.length){
+          //   likeArticle("-LPftXNUvsZ6RCTb1292")
+          // }
+  })
+
+
+
 
 
 
@@ -91,11 +105,14 @@ function likeArticle(firebase_key) {
     }
   })
 
+  console.log("hi");
+
   if(selectedArticle && selectedArticle.fbKey){
-    let selectedArticle = allArticles[3]
+    console.log("bye");
     selectedArticle.likes = selectedArticle.likes += 1
     var updated = {}
     updated['/' + selectedArticle.fbKey] = selectedArticle
+    console.log(updated);
     articlesRef.update(updated)
   }
 
