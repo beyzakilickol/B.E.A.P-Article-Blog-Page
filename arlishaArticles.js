@@ -32,11 +32,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed out.
     // ...
   }
-  refreshUserArticles()
+  refreshArticles()
 });
 
 
-function refreshUserArticles() {
+function refreshArticles() {
 
 
   articlesRef.on('value', function(snapshot){
