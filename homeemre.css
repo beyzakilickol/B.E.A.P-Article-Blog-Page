@@ -3,8 +3,12 @@
 
 #header{
   display:flex;
-  position: relative;
+  position:fixed !important;
   }
+#toFillSpace{
+  height:450px;
+  width:100%;
+}
 .sectionDiv{
   width: 84%;
   height: 81% !important;

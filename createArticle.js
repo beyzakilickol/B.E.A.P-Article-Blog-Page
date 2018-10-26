@@ -86,17 +86,37 @@ submitButton.addEventListener('click', function() {
  let url = articleUrl.value
  let description = articleDescription.value
  let body = articleBody.value
+ let category = categoryTitle.value
+
  articleForm.reset()
 
  let currentUser = firebase.auth().currentUser
 
- let userRef = database.ref("users").child(currentUser.uid).child("articles").push()
- .set({
+let userRef = database.ref("users").child(currentUser.uid)
+let articlesRef = userRef.child("articles")
+let articleRef = articlesRef.push()
+articleRef.set({
+  userName : firebase.auth().currentUser.displayName,
+  category: category,
+  title : title,
+  img : url,
+  description : description,
+  article : body,
+  publishedDate : dateTimeNow(),
+
+})
+
+
+ let articleList = database.ref("articleList").push().set({
+   userName : firebase.auth().currentUser.displayName,
+   category: category,
    title : title,
    img : url,
    description : description,
    article : body,
-   publishedDate : dateTimeNow()
+   publishedDate : dateTimeNow(),
+ })
+
 
  })
 alertAfterPost()
