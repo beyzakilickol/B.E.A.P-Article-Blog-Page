@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @media (max-width:760px){
   .py-3{
     margin-bottom: 150px;
@@ -7,6 +8,25 @@
   }
 .homePageDate{
 font-size: 5vw !important;
+=======
+@import "compass/css3";
+
+
+#header{
+  display:flex;
+  position:fixed !important;
+  }
+#toFillSpace{
+  height:450px;
+  width:100%;
+}
+.sectionDiv{
+  width: 84%;
+  height: 81% !important;
+  display: flex !important;
+  flex-direction: column !important;
+
+>>>>>>> 9cc136b410de90cbcd28f26c901a3c021c6bbe54
 }
 .categories{
   font-size: 5vw !important;

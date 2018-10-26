@@ -1,11 +1,58 @@
-/* #divToStyle{
-  position: fixed;
-  z-index: 1;
 
-} */
+@import "compass/css3";
+
 #header{
   display:flex;
-  position: relative;
+    position: relative;
+
+  }
+#toFillSpace{
+  height:100px;
+  width:100%;
+  position:fixed;
+  z-index:1;
+  background-color: white;
+
+}
+#allArticlesDiv{
+  overflow: scroll;
+  margin-right: 20px;
+  height:110%;
+}
+.sectionDiv{
+    width: 84%;
+    /* height: 81% !important; */
+    display: flex !important;
+    flex-direction: column !important;
+
+  }
+  .row{
+    height: 100%;
+  }
+  .px-3{
+    font-size: 15px !important;
+  }
+  .leftSideBar{
+    height: 100%;
+  }
+  .rightSideCard{
+
+    /* margin-bottom: 15% !important; */
+    border-style: none !important;
+  }
+
+  .rightSideCardMainDiv{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-right: 11%;
+    /* margin-right: 15% !important; */
+    float: right;
+  }
+  .MainDivBelowSlides{
+    transform: scale(0.84);
+    display: flex;
+    flex-direction: row;
+    margin-top: -8%;
   }
 #profile-container{
   display:flex;
@@ -20,7 +67,12 @@
   border-style: none;
   background-color:white;
 }
-
+.leftSideBar{
+  height: 34% !important;
+}
+.card-deck{
+  opacity: 1.5;
+}
 .dropdown{
   box-shadow: 0px 0px 0px 0px;
   margin-top: 3px;
@@ -55,8 +107,10 @@ color:black !important;
 }
 .py-3{
   transform: scale(0.8);
-  margin-left: 1% !important;
-  margin-top: -10% !important;
+  /* margin-left: 5% !important; */
+  /* margin-top: -10% !important; */
+  width: 100% !important;
+  margin-top: -45px !important;
 }
 @media (max-width:510px){
   #logo-container{
@@ -82,6 +136,15 @@ box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
 }
 a{
   color:black !important;
+}
+.leftSideButton{
+  width: 100px;
+  margin-bottom: 3%;
+  color: black !important;
+  background-color: white !important;
+  font-size: 16px;
+  border-style: none;
+  box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
 }
 #carouselExampleIndicators{
 /* margin-top: 100px; */
@@ -240,4 +303,58 @@ transform: translateX(-50%)
   #logInCard{
     width:80%
   }
+}
+#indicator1{
+  background-color: black !important;
+  opacity: 0.3;
+}
+#indicator2{
+  background-color: black !important;
+  opacity: 0.3;
+  margin-left: 10px;
+}
+#indicator3{
+  background-color: black !important;
+  opacity: 0.3;
+  margin-left: 10px;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;
+  background-color:#737982;
+  height: 1px;
+}
+.card-text{
+  font-size: 19px !important;
+}
+.containerAfterHeader{
+  position:absolute;
+  left:50%;
+  top:180;
+  transform:translateX(-50%);
+  width:100%;
+}
+
+.articleTemplate{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 4%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+
+}
+.wholeArticleImg{
+  max-width: 100%;
+  height:auto;
+  display:block;
+
+}
+.wholeArticleImgContainer{
+  /* margin-left: 30%; */
 }

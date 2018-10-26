@@ -25,7 +25,6 @@ body {
     padding: 10px;
     text-decoration: none;
     margin-right: 20px;
-    text-decoration: none;
     border: transparent;
     font-size: 16px;
     font-family: inherit;
@@ -83,8 +82,19 @@ h2 {
     padding-right: 100px;
 }
 #articleImage {
-    width: 100%;
+    width: 30%;
+    height: 70%;
+    float: left;
+    margin-left: 70px;
+    border: 15px solid #74b9ff;
+    padding: 10px;
 }
+
+#content{
+    margin-left: 550px;
+    margin-right: 100px;
+}
+
 
 .container {
     display: flex;
@@ -101,9 +111,19 @@ h2 {
 #logo-container {
     transform: scale(0.7);
 }
+a:hover{
+    text-decoration: none;
+}
 
-h5 {
+h5{
+    font-weight: bold; 
+    
+}
+h5:hover {
     color:#74b9ff;
+    cursor: pointer;
+    text-decoration:none;
+
 }
 
 .user-profile{
@@ -111,6 +131,23 @@ h5 {
     margin-right: 100px;
 }
 
-#profile-container{
-    height: 3%;
+#userLogName {
+    margin-top: 60px;
+    margin-right: 0px;
+    color:#a29bfe;
 }
+i{
+    margin-right: 300px;
+    margin-top: 55px;
+}
+
+h4{
+    margin-left: 450px;
+    font-size: 50px;
+}
+
+#comment{
+    margin-top: 400px;
+    margin-left: 400px;
+}
+
