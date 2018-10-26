@@ -15,9 +15,23 @@ let signInButton = document.getElementById("signInButton")
 let signOutButton = document.getElementById("signOutButton")
 let dropdownMenuButton = document.getElementById("dropdownMenuButton")
 let noAccount = document.getElementById("noAccount")
-//let body = document.getElementsByTagName("BODY")[0]
+let allClassDiv = document.getElementById("allClassDiv")
+let allArticlesDiv = document.getElementById('allArticlesDiv')
+let cardContainer=document.getElementById('card-container')
+let cardContainer2=document.getElementById('card-container2')
+let cardContainer3=document.getElementById('card-container3')
+let sportsButton =document.getElementById('sportsButton')
+let healthButton =document.getElementById('healthButton')
+let techButton =document.getElementById('techButton')
+let cultureButton =document.getElementById('cultureButton')
+let educationButton =document.getElementById('educationButton')
+let foodButton =document.getElementById("foodButton")
+let othersButton =document.getElementById('othersButton')
+let mainDiv= document.getElementById("mainDiv")
+let containerAfterHeader=document.getElementById("containerAfterHeader")
+let body = document.getElementsByTagName("BODY")[0]
 const database = firebase.database()
-let userName
+   configureObserver()
 //--------------registration--------------------------
 registerButton.addEventListener("click",function(){
   let email = emailTextBox.value
@@ -25,7 +39,8 @@ registerButton.addEventListener("click",function(){
   userName = ''
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then(function(user){
-     //userName = nameTextBox.value
+
+
      updateUserProfile()
      registerCard.style.display ="none"
      slideContainer.style.opacity ="1"
@@ -58,6 +73,9 @@ function updateUserProfile() {
 
 }
 
+
+
+
 //--------------------------------------------------------------------------
 signInButton.addEventListener("click", function(){
 
@@ -71,12 +89,9 @@ signInButton.addEventListener("click", function(){
     login.style.display = "none"
     getStarted.style.display = "none"
     dropdownMenuButton.style.display = "block"
-         configureObserver()
+    containerAfterHeader.style.opacity = "1"
          console.log("User Signed In Successfully!!")
-       currentUserId = firebase.auth().currentUser.uid
-      database.ref("users").child(currentUserId).set({
-        userName : firebase.auth().currentUser.displayName
-        })
+
 
 })
   .catch(function(error) {
@@ -100,15 +115,17 @@ firebase.auth().signOut().then(response => {
 //---------------------------------------------------------
   let data = []
 function configureObserver(){
- data = []
-currentUserId = firebase.auth().currentUser.uid
+
+//currentUserId = firebase.auth().currentUser.uid
 database.ref("users").on('value',function(snapshot){
+  data = []
    snapshot.forEach(function(childSnapshot){
     data.push(childSnapshot.val());
-     console.log(data);
+    console.log(data);
+    displayAllArticles()
+
    })
 
-// dropdownMenuButton.innerHTML = "Welcome " + snapshot.child(currentUserId).child('userName').val().toUpperCase()
    })
 
 }
@@ -116,6 +133,9 @@ database.ref("users").on('value',function(snapshot){
 //--------------------------------------------------------
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+
+
+
     // User is signed in.
     var displayName = user.displayName;
     var email = user.email;
@@ -130,9 +150,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     getStarted.style.display = "none"
     dropdownMenuButton.style.display = "block"
     currentUserId = firebase.auth().currentUser.uid
-    dropdownMenuButton.innerHTML = "Welcome " + user.displayName
-    //+ database.ref("users").child(currentUserId).child('userName').val().toUpperCase()
-    // ...
+    dropdownMenuButton.innerHTML = "Welcome " + displayName
+
   } else {
     // User is signed out.
     // ...
@@ -147,6 +166,7 @@ login.addEventListener("click",function() {
   logInCard.style.display= "block"
   logInCard.style.position= "fixed"
   slideContainer.style.opacity = "0.1"
+  containerAfterHeader.style.opacity = "0.1"
 })
 loginCloseIcon.addEventListener("click",function(){
   logInCard.style.display ="none"
@@ -156,6 +176,7 @@ getStarted.addEventListener("click",function() {
   registerCard.style.display= "block"
   registerCard.style.position= "fixed"
   slideContainer.style.opacity = "0.1"
+  containerAfterHeader.style.opacity = "0.1"
 });
 getStartedCloseIcon.addEventListener("click",function(){
     registerCard.style.display ="none"
@@ -167,3 +188,692 @@ noAccount.addEventListener("click", function(){
   registerCard.style.position= "fixed"
 }
 )
+//----------------------------------------------------
+
+function displayAllArticles(){
+
+allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+let article
+   Object.values(each.articles).map(function(item){
+
+
+     article = `
+
+          <div class="container py-3">
+            <div class="card leftSideBar">
+              <div class="row ">
+
+                  <div class="col-md-8 px-3">
+                    <div class="card-block px-3">
+                      <h3 class="card-title">${item.category}</h3>
+                      <p class="card-text"><strong>${item.title}</strong></p>
+                      <p class="card-text">${item.description}</p>
+                      <h6 class="homePageAuthor">${item.userName}</h6>
+                      <h6 class="homePageDate">Posted Date : ${item.publishedDate} </h6>
+                      <a href="#" class="leftSideButton"><u><i>Read More...</i></u></a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <img style="width:100% !important;height:100%;" src="${item.img}" class="w-100">
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          `
+         allArticlesDiv.insertAdjacentHTML('beforeend',article)
+
+    })
+
+})
+
+}
+//-------------------------------------------------------
+let lastArticles
+function filteredArticleObserver(){
+  database.ref("articleList").on("value",function(snapshot){
+
+    lastArticles=[]
+       snapshot.forEach(function(childSnapshot){
+         lastArticles.push(childSnapshot.val())
+
+
+ })
+console.log(lastArticles)
+  console.log(lastArticles.slice(lastArticles.length-3,lastArticles.length+1))
+  console.log(lastArticles.slice(lastArticles.length-6,lastArticles.length-3))
+  console.log(lastArticles.slice(lastArticles.length-9,lastArticles.length-6))
+displayFilteredArticles()
+//getWholeArticleInfo()
+  })
+
+}
+filteredArticleObserver()
+function displayFilteredArticles(){
+  cardContainer.innerHTML = ''
+  cardContainer2.innerHTML = ''
+  cardContainer3.innerHTML = ''
+  let firstThreeArticles = lastArticles.slice(lastArticles.length-3,lastArticles.length+1)
+  firstThreeArticles.map(function(each){
+
+
+
+   let lastItem=`
+   <div class="card">
+   <img class="card-img-top" src="${each.img}" alt="Card image cap">
+   <div class="card-body">
+     <h5 style="text-transform:capitalize" class="card-title">${each.title}</h5>
+     <p style="text-transform:capitalize"><i>by ${each.userName}</i> </p><p>${each.publishedDate}</p>
+     <p class="card-text">${each.description}</p>
+
+   </div>
+   <div style="display:flex; justify-content:center;">
+
+   <button type="button" onclick="displayWholeArticle(this)" class="btn btn-secondary btn-sm readMore"><strong>Read more</strong></button>
+     </div>
+   <div class="card-footer">
+     <small class="text-muted">Posted on :</small>
+   </div>
+   </div>
+   `
+   cardContainer.insertAdjacentHTML("afterbegin",lastItem)
+   })
+   let middleThreeArticles = lastArticles.slice(lastArticles.length-6,lastArticles.length-3)
+   middleThreeArticles.map(function(each){
+
+
+
+    let lastItem=`
+    <div class="card">
+    <img class="card-img-top" src="${each.img}" alt="Card image cap">
+    <div class="card-body">
+      <h5 style="text-transform:capitalize" class="card-title">${each.title}</h5>
+      <p style="text-transform:capitalize"><i>by ${each.userName}</i> </p><p>${each.publishedDate}</p>
+      <p class="card-text">${each.description}</p>
+
+    </div>
+    <div style="display:flex; justify-content:center;">
+
+    <button type="button" onclick="displayWholeArticle(this)" class="btn btn-secondary btn-sm readMore"><strong>Read more</strong></button>
+      </div>
+    <div class="card-footer">
+      <small class="text-muted">Posted on :</small>
+    </div>
+    </div>
+    `
+    cardContainer2.insertAdjacentHTML("afterbegin",lastItem)
+    })
+    let lastSlideArticles = lastArticles.slice(lastArticles.length-9,lastArticles.length-6)
+    lastSlideArticles.map(function(each){
+
+
+
+     let lastItem=`
+     <div class="card">
+     <img class="card-img-top" src="${each.img}" alt="Card image cap">
+     <div class="card-body">
+       <h5 style="text-transform:capitalize" class="card-title">${each.title}</h5>
+       <p style="text-transform:capitalize"><i>by ${each.userName}</i> </p><p>${each.publishedDate}</p>
+       <p class="card-text">${each.description}</p>
+
+     </div>
+     <div style="display:flex; justify-content:center;">
+
+     <button type="button" onclick="displayWholeArticle(this)" class="btn btn-secondary btn-sm readMore"><strong>Read more</strong></button>
+       </div>
+     <div class="card-footer">
+       <small class="text-muted">Posted on :</small>
+     </div>
+     </div>
+     `
+     cardContainer3.insertAdjacentHTML("afterbegin",lastItem)
+     })
+   }
+// ------------------displayWholeArticle starts here------------------
+let buttonTitle
+function displayWholeArticle(button){
+  body.removeChild(slideContainer)
+  body.removeChild(mainDiv)
+  body.removeChild(containerAfterHeader)
+  let buttonPublishedDate = button.parentElement.parentElement.children[1].children[2].innerHTML
+  getWholeArticleInfo(buttonPublishedDate)
+
+
+        //
+        // let buttonBack = `<a href="indexbeyza.html"><button style="margin-top:500px;">back</button></a>`
+        // body.insertAdjacentHTML("beforeend",buttonBack)
+
+}
+//---------------------------------------------------------
+function getWholeArticleInfo(buttonPublishedDate){
+  lastArticles.map(function(each){
+    if(each.publishedDate == buttonPublishedDate){
+      let readWholeArticleAtHome = `
+      <div class="articleTemplate">
+     <h1>${each.title}</h1>
+     <p style="text-transform:capitalize">by ${each.userName}</p>
+     <p>${each.publishedDate}</p>
+     <div class="wholeArticleImgContainer">
+     <img style="margin-bottom: 30px" class="wholeArticleImg" src="${each.img}" />
+     </div>
+     <h5 style="margin-bottom:30px"><i>${each.description}</i></h5>
+     <p>${each.article}</p>
+     <div class="card">
+  <div class="card-header">
+    Leave a Comment
+  </div>
+  <div class="card-body">
+    <textarea type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
+    <a href="#" class="btn btn-primary">Submit</a>
+  </div>
+</div>
+     </div>
+      `
+      body.insertAdjacentHTML("beforeend",readWholeArticleAtHome)
+    }
+  })
+}
+
+
+
+//-------------Category Buttons-----------------------------------
+sportsButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+  containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Sports"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+healthButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Health"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+techButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Tech"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+cultureButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Culture"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+educationButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Education"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+foodButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Food"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
+othersButton.addEventListener("click",function(){
+  //-----------------
+  login.addEventListener("click",function() {
+    logInCard.style.display= "block"
+    logInCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    logInCard.style.zIndex = "1"
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    slideContainer.style.opacity = "1"
+    containerAfterHeader.style.opacity = "1"
+  });
+  getStarted.addEventListener("click",function() {
+    registerCard.style.display= "block"
+    registerCard.style.position= "fixed"
+    slideContainer.style.opacity = "0.1"
+    containerAfterHeader.style.opacity = "0.1"
+    registerCard.style.zIndex = "1"
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+      slideContainer.style.opacity = "1"
+      containerAfterHeader.style.opacity = "1"
+    })
+  //--------------------
+    containerAfterHeader.innerHTML=''
+   slideContainer.style.display = "none"
+   mainDiv.style.display = "none"
+
+  configureObserver()
+  allArticlesDiv.innerHTML=''
+data.map(function(each){
+
+  let article
+     Object.values(each.articles).map(function(item){
+
+       if(item.category == "Others"){
+       article = `
+
+       <div class="container py-3">
+     <div class="card leftSideBar">
+       <div class="row ">
+           <div class="col-md-8 px-3">
+             <div class="card-body">
+               <h3 class="card-title" style="font-size:1.7vw;">${item.category}</h3>
+               <p class="card-text" style="font-size:3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><strong>${item.title}</strong></p>
+               <p class="card-text" style="font-size:2vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${item.description}</p>
+               <h6 class="homePageAuthor style="font-size:2vw;">${item.userName}</h6>
+               <h6 class="homePageDate" style="font-size:1.1vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Posted Date : ${item.publishedDate} </h6>
+               <a href="#" class="leftSideButton" style="font-size:1.3vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><u><i>Read More...</i></u></a>
+             </div>
+           </div>
+           <div class="col-md-4">
+               <img style="width:80% !important; height:80% !important" src="${item.img}" class="w-100">
+             </div>
+         </div>
+       </div>
+     </div>
+            `
+           containerAfterHeader.insertAdjacentHTML('beforeend',article)
+         }
+
+      })
+
+  })
+
+})
