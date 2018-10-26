@@ -21,7 +21,7 @@
        <div id="userContainer3">
          <form id="articleForm">
      <label> Choose a Category : </label>
-       <select name= "Category" required>
+       <select  id = "categoryTitle" name= "Category" required>
          <option value="Sports">Sports</option>
          <option value="Health">Health</option>
          <option value="Techs">Techs</option>
@@ -41,7 +41,7 @@
      <label> Enter Article Title : </label>
      <input id="articleTitle" type="text" placeholder="Title of Article" minLength="4" required>
    <br>
-     <textarea id="articleBody" placeholder="Enter Article Here....." rows="50" cols="100" minLength="100" required></textarea>
+     <textarea style="white-space:pre-wrap" id="articleBody" placeholder="Enter Article Here....." rows="50" cols="100" minLength="100" required></textarea>
    <br>
      <button id="submitButton" type="button" required>Post Article</button>
    </form>

@@ -211,8 +211,8 @@ let article
                       <p class="card-text"><strong>${item.title}</strong></p>
                       <p class="card-text">${item.description}</p>
                       <h6 class="homePageAuthor">${item.userName}</h6>
-                      <h6 class="homePageDate">Posted Date : ${item.publishedDate} </h6>
-                      <a href="#" class="leftSideButton"><u><i>Read More...</i></u></a>
+                      <h6 class="homePageDate">${item.publishedDate}</h6>
+                      <a href="#" onclick="displayWholeArticle2(this)" class="leftSideButton"><u><i>Read More...</i></u></a>
                     </div>
                   </div>
 
@@ -231,6 +231,93 @@ let article
 })
 
 }
+//------------------------------------------------------
+
+function displayWholeArticle2(button){
+
+  body.removeChild(slideContainer)
+  body.removeChild(mainDiv)
+  body.removeChild(containerAfterHeader)
+  let buttonPublishedDate = button.previousElementSibling.innerHTML
+  //let buttonPublishedDate = button.parentElement.parentElement.children[1].children[2].innerHTML
+  getWholeArticleInfo2(buttonPublishedDate)
+
+
+        //
+        // let buttonBack = `<a href="indexbeyza.html"><button style="margin-top:500px;">back</button></a>`
+        // body.insertAdjacentHTML("beforeend",buttonBack)
+
+}
+//---------------------------------------------------------
+function getWholeArticleInfo2(buttonPublishedDate){
+  lastArticles.map(function(each){
+    if(each.publishedDate == buttonPublishedDate){
+      let readWholeArticleAtHome = `
+      <div class="articleTemplate">
+     <h1>${each.title}</h1>
+     <p style="text-transform:capitalize">by ${each.userName}</p>
+     <p>${each.publishedDate}</p>
+     <div class="wholeArticleImgContainer">
+     <img style="margin-bottom: 30px" class="wholeArticleImg" src="${each.img}" />
+     </div>
+     <h5 style="margin-bottom:30px"><i>${each.description}</i></h5>
+     <p>${each.article}</p>
+     <div class="card">
+
+  <div class="card-header">
+    Leave a Comment
+  </div>
+  <div class="card-body">
+    <textarea style="width: 100%;margin-bottom:5px;" type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
+    <a href="#" class="btn btn-primary">Submit </i></a>
+    <i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">&nbsp;&nbsp;count</i>
+
+  </div>
+</div>
+     </div>
+
+      `
+      body.insertAdjacentHTML("beforeend",readWholeArticleAtHome)
+    }
+  })
+
+  let articleTemplate = document.querySelector(".articleTemplate")
+  login.addEventListener("click",function() {
+     articleTemplate.style.opacity = "0.1"
+    logInCard.style.display ="block"
+    logInCard.style.position= "fixed"
+    logInCard.style.zIndex = "1"
+
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    articleTemplate.style.opacity = "1"
+
+  });
+  getStarted.addEventListener("click",function() {
+    articleTemplate.style.opacity = "0.1"
+   registerCard.style.display ="block"
+    registerCard.style.position= "fixed"
+
+    registerCard.style.zIndex = "1"
+
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+    articleTemplate.style.opacity = "1"
+
+    })
+    noAccount.addEventListener("click", function(){
+      logInCard.style.display="none"
+      registerCard.style.display = "block"
+      registerCard.style.position= "fixed"
+      registerCard.style.zIndex = "1"
+    })
+}
+
+
 //-------------------------------------------------------
 let lastArticles
 function filteredArticleObserver(){
@@ -333,11 +420,14 @@ function displayFilteredArticles(){
      })
    }
 // ------------------displayWholeArticle starts here------------------
+
 let buttonTitle
 function displayWholeArticle(button){
+
   body.removeChild(slideContainer)
   body.removeChild(mainDiv)
   body.removeChild(containerAfterHeader)
+  //let buttonPublishedDate = button.previousElementSibling.innerHTML
   let buttonPublishedDate = button.parentElement.parentElement.children[1].children[2].innerHTML
   getWholeArticleInfo(buttonPublishedDate)
 
@@ -362,19 +452,58 @@ function getWholeArticleInfo(buttonPublishedDate){
      <h5 style="margin-bottom:30px"><i>${each.description}</i></h5>
      <p>${each.article}</p>
      <div class="card">
+
   <div class="card-header">
     Leave a Comment
   </div>
   <div class="card-body">
-    <textarea type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
-    <a href="#" class="btn btn-primary">Submit</a>
+    <textarea style="width: 100%;margin-bottom:5px;" type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
+    <a href="#" class="btn btn-primary">Submit </i></a>
+    <i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">&nbsp;&nbsp;count</i>
+
   </div>
 </div>
      </div>
+
       `
       body.insertAdjacentHTML("beforeend",readWholeArticleAtHome)
     }
   })
+
+  let articleTemplate = document.querySelector(".articleTemplate")
+  login.addEventListener("click",function() {
+     articleTemplate.style.opacity = "0.1"
+    logInCard.style.display ="block"
+    logInCard.style.position= "fixed"
+    logInCard.style.zIndex = "1"
+
+
+
+  })
+  loginCloseIcon.addEventListener("click",function(){
+    logInCard.style.display ="none"
+    articleTemplate.style.opacity = "1"
+
+  });
+  getStarted.addEventListener("click",function() {
+    articleTemplate.style.opacity = "0.1"
+   registerCard.style.display ="block"
+    registerCard.style.position= "fixed"
+
+    registerCard.style.zIndex = "1"
+
+  });
+  getStartedCloseIcon.addEventListener("click",function(){
+      registerCard.style.display ="none"
+    articleTemplate.style.opacity = "1"
+
+    })
+    noAccount.addEventListener("click", function(){
+      logInCard.style.display="none"
+      registerCard.style.display = "block"
+      registerCard.style.position= "fixed"
+      registerCard.style.zIndex = "1"
+    })
 }
 
 
@@ -390,11 +519,13 @@ sportsButton.addEventListener("click",function(){
     logInCard.style.zIndex = "1"
 
 
+
   })
   loginCloseIcon.addEventListener("click",function(){
     logInCard.style.display ="none"
     slideContainer.style.opacity = "1"
     containerAfterHeader.style.opacity = "1"
+
   });
   getStarted.addEventListener("click",function() {
     registerCard.style.display= "block"
@@ -402,11 +533,13 @@ sportsButton.addEventListener("click",function(){
     slideContainer.style.opacity = "0.1"
     containerAfterHeader.style.opacity = "0.1"
     registerCard.style.zIndex = "1"
+
   });
   getStartedCloseIcon.addEventListener("click",function(){
       registerCard.style.display ="none"
       slideContainer.style.opacity = "1"
       containerAfterHeader.style.opacity = "1"
+
     })
   //--------------------
   containerAfterHeader.innerHTML=''
