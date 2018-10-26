@@ -105,10 +105,10 @@ function likeArticle(firebase_key) {
     }
   })
 
-  console.log("hi");
+  //console.log("hi");
 
   if(selectedArticle && selectedArticle.fbKey){
-    console.log("bye");
+    //console.log("bye");
     selectedArticle.likes = selectedArticle.likes += 1
     var updated = {}
     updated['/' + selectedArticle.fbKey] = selectedArticle
