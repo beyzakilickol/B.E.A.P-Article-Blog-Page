@@ -2,19 +2,19 @@
 <head>
   <title>BEAP Home Page</title>
   <link rel="stylesheet" type="text/css" href="homeemre.css"/>
-
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
   <!-- <div id="divToStyle"> -->
-<div id="header">
+<div id="header" style="display:flex !important; margin-top:4px !important;">
   <img id="logo-container" src="BEAPlogo.png"/>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light listBar">
   <a class="navbar-brand active" href="#">Home<span class="sr-only">(current)</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -39,8 +39,9 @@
       Your profile
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Create a post</a>
-      <a class="dropdown-item" href="#">View posted articles</a>
+      <a class="dropdown-item" href="createArticle.html">Create a post</a>
+      <a class="dropdown-item" href="posts.html">View posted articles</a>
+          <a  id="signOutButton" class="dropdown-item" href="#">Sign out</a>
     </div>
   </div>
   </div>
@@ -50,26 +51,13 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
   <li id="indicator1" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-  <li id="indicator2" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li  id="indicator2" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
   <li id="indicator3" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 </ol>
 <div class="carousel-inner">
   <div class="carousel-item active">
     <!-- Card Decks start here -->
-    <div class="card-deck">
-      <div class="card">
-        <img class="card-img-top" src="test1.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Sport News Title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div style="display:flex; justify-content:center;">
-        <button type="button" class="btn btn-secondary btn-sm readMore"><strong>Read more</strong></button>
-          </div>
-        <div class="card-footer">
-          <small class="text-muted">Posted on :</small>
-        </div>
-      </div>
+    <div id="card-container" class="card-deck">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Health News Title</h5>
@@ -82,6 +70,20 @@
           <small class="text-muted">Posted on :</small>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Food News Title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <img class="card-img-top" src="test1.png" alt="Card image cap">
+        <div style="display:flex; justify-content:center;">
+        <button type="button" class="btn btn-secondary btn-sm readMore"><strong>Read more</strong></button></div>
+        <div class="card-footer">
+          <small class="text-muted">Posted on :</small>
+        </div>
+      </div>
+
       <div class="card">
         <img class="card-img-top" src="test1.png" alt="Card image cap">
         <div class="card-body">
@@ -205,78 +207,25 @@
 </div>
 <div id="logInCard">
   <h2>Login</h2>
-  <label>Enter fullname:</label><br />
-  <input id="nameTextBox" type="email" placeholder="Type your name here" onfocus="this.placeholder=''"/></label>
   <label> Enter your email:
   <input id ="loginEmailTextBox" type="email" placeholder="example@gmail.com" onfocus="this.placeholder=''"/></label>
   <label>Enter your password:
   <input id = "loginPasswordTextBox" type="password" placeholder="Enter your password..." onfocus="this.placeholder=''"/></label>
   <div style="display:flex; justify-content:center;">
-<label></label>
-  <button class="style" id="signInButton">Sign in</button></div><a href="#">Don't have an account?</a></label>
+<label>
+  <button class="style" id="signInButton">Sign in</button></label></div>
+  <div style="text-align:center">
+<a id="noAccount" href="#"><u>Don't have an account?</u></a>  </div>
   <a id="loginCloseIcon" href="#"><i class="fas fa-times"></i></a>
 </div>
 <!-- ************************************************ -->
-<!-- =========================================================================== -->
 <div class="MainDivBelowSlides">
-
-<section class="sectionDiv">
-  <div class="container py-3">
-    <div class="card leftSideBar">
-      <div class="row ">
-
-          <div class="col-md-8 px-3">
-            <div class="card-block px-3">
-              <h3 class="card-title">Article Category</h3>
-              <p class="card-text"><strong>Title</strong></p>
-              <p class="card-text">Abstract</p>
-              <h6 class="homePageAuthor">Author name/username </h6>
-              <h6 class="homePageDate">Posted Date : </h6>
-              <a href="#" class="leftSideButton"><u><i>Read More...</i></u></a>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-              <img style="width:100% !important;height:100%;" src="2.png" class="w-100">
-            </div>
-
-        </div>
-      </div>
-    </div>
-<!-- left side bar second one stars here -->
-
-
-  <div class="container py-3">
-    <div class="card leftSideBar">
-      <div class="row ">
-
-          <div class="col-md-8 px-3">
-            <div class="card-block px-3">
-              <h3 class="card-title">Article Category</h3>
-              <p class="card-text"><strong>Title</strong></p>
-              <p class="card-text">Abstract</p>
-              <h6 class="homePageAuthor">Author name/username </h6>
-              <h6 class="homePageDate">Posted Date : </h6>
-              <a href="#" class="leftSideButton"><u><i>Read More...</i></u></a>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-              <img style="width:100% !important;height:100%;" src="1.png" class="w-100">
-            </div>
-
-        </div>
-      </div>
-    </div>
-
-
+<div id ="allArticlesDiv" class="sectionDiv">
     <!-- left side bar third one stars here -->
-
-
+<!--
       <div class="container py-3">
         <div class="card leftSideBar">
           <div class="row ">
-
               <div class="col-md-8 px-3">
                 <div class="card-block px-3">
                   <h3 class="card-title">Article Category</h3>
@@ -287,69 +236,68 @@
                   <a href="#" class="leftSideButton"><u><i>Read More...</i></u></a>
                 </div>
               </div>
-
               <div class="col-md-4">
                   <img style="width:100% !important;height:100%;" src="3.png" class="w-100">
                 </div>
-
             </div>
           </div>
-        </div>
-
-
-</section>
-
-
+        </div> -->
+</div>
 <!-- homepage right side articles body starts here -->
 <div class="rightSideCardMainDiv">
 <h3 id="trendingTitle"><i>Popular on BEAP</i></h3>
 <hr />
-
 <div class="card rightSideCard" style="width: 16rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="bttn">Details..</a>
+    <a href="#" class="bttn" id="bouton">Details..</a>
   </div>
 </div>
-
 <div class="card text-right rightSideCard" style="width: 16rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="bttn">Details..</a>
+    <a href="#" class="bttn" id="bouton">Details..</a>
   </div>
 </div>
-
 <div class="card rightSideCard" style="width: 16rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="bttn">Details..</a>
+    <a href="#" class="bttn" id="bouton">Details..</a>
   </div>
 </div>
-
 <div class="card text-right rightSideCard" style="width: 16rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="bttn">Details..</a>
+    <a href="#" class="bttn" id="bouton">Details..</a>
   </div>
 </div>
-
-
-
 </div>
-
 </div>
-
-
+<!-- =========================================================================== -->
 <!-- Optional JavaScript -->
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="button.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
+   <script>
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
+   authDomain: "beap-44ce7.firebaseapp.com",
+   databaseURL: "https://beap-44ce7.firebaseio.com",
+   projectId: "beap-44ce7",
+   storageBucket: "beap-44ce7.appspot.com",
+   messagingSenderId: "920632593176"
+ };
+ firebase.initializeApp(config);
+</script>
 <script src="homeemre.js"></script>
 </body>
 </html>
