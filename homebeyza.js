@@ -250,6 +250,30 @@ function displayWholeArticle2(button){
         // body.insertAdjacentHTML("beforeend",buttonBack)
 
 }
+//-----------------------------------------------------
+var count2
+function getCount2(button){
+
+
+  count2++
+
+  button.children[0].innerHTML= count2
+  let buttonPublishedDate= button.parentElement.parentElement.parentElement.children[2].innerHTML
+  database.ref("articleList").on("value",function(snapshot){
+// lastArticles=[]
+       snapshot.forEach(function(childSnapshot){
+         let getDateForLikes = childSnapshot.val().publishedDate
+         // lastArticles.push(childSnapshot.val())
+         if (getDateForLikes == buttonPublishedDate) {
+          // database.ref("articleList").child(childSnapshot.key).child("LikeCounts").set({count : count})
+          database.ref("articleList").child(childSnapshot.key).child("LikeCounts").set({count : count2})
+
+         }
+       })
+
+})
+
+}
 //---------------------------------------------------------
 function getWholeArticleInfo2(buttonPublishedDate){
   lastArticles.map(function(each){
@@ -269,10 +293,10 @@ function getWholeArticleInfo2(buttonPublishedDate){
   <div class="card-header">
     Leave a Comment
   </div>
-  <div class="card-body">
+  <div class="card-body likeContainer">
     <textarea style="width: 100%;margin-bottom:5px;" type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
-    <a href="#" class="btn btn-primary">Submit </i></a>
-    <i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">&nbsp;&nbsp;count</i>
+    <a href="#"  class="btn btn-primary">Submit </i></a>
+    <a onclick="getCount2(this)" class="silentButton" href="#"><i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">${each.LikeCounts.count}</i></a>
 
   </div>
 </div>
@@ -280,6 +304,7 @@ function getWholeArticleInfo2(buttonPublishedDate){
 
       `
       body.insertAdjacentHTML("beforeend",readWholeArticleAtHome)
+      count2= each.LikeCounts.count
     }
   })
 
@@ -440,6 +465,32 @@ function displayWholeArticle(button){
 
 }
 //---------------------------------------------------------
+
+//---------------------------------------------------------
+var count
+function getCount(button){
+
+
+  count++
+
+  button.children[0].innerHTML= count
+  let buttonPublishedDate= button.parentElement.parentElement.parentElement.children[2].innerHTML
+  database.ref("articleList").on("value",function(snapshot){
+// lastArticles=[]
+       snapshot.forEach(function(childSnapshot){
+         let getDateForLikes = childSnapshot.val().publishedDate
+         // lastArticles.push(childSnapshot.val())
+         if (getDateForLikes == buttonPublishedDate) {
+          // database.ref("articleList").child(childSnapshot.key).child("LikeCounts").set({count : count})
+          database.ref("articleList").child(childSnapshot.key).child("LikeCounts").set({count : count})
+         }
+       })
+
+})
+
+}
+
+//---------------------------------------------------------
 function getWholeArticleInfo(buttonPublishedDate){
   lastArticles.map(function(each){
     if(each.publishedDate == buttonPublishedDate){
@@ -458,10 +509,10 @@ function getWholeArticleInfo(buttonPublishedDate){
   <div class="card-header">
     Leave a Comment
   </div>
-  <div class="card-body">
+  <div class="card-body likeContainer">
     <textarea style="width: 100%;margin-bottom:5px;" type="text" placeholder="Enter your comment here.." onfocus="this.placeholder=''"></textarea>
     <a href="#" class="btn btn-primary">Submit </i></a>
-    <i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">&nbsp;&nbsp;count</i>
+    <a onclick ="getCount(this)" class="silentButton" href="#"><i style="margin-top:6px;" class="fas fa-thumbs-up fa-1.7x">${each.LikeCounts.count}</i></a>
 
   </div>
 </div>
@@ -469,6 +520,7 @@ function getWholeArticleInfo(buttonPublishedDate){
 
       `
       body.insertAdjacentHTML("beforeend",readWholeArticleAtHome)
+      count = each.LikeCounts.count
     }
   })
 

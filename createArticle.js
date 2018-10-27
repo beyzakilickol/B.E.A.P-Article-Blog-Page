@@ -73,10 +73,12 @@ articleRef.set({
   article : body,
   publishedDate : currentDate,
 
-})
-alertAfterPost()
 
-  database.ref("articleList").push().set({
+})
+
+alertAfterPost()
+let articleWithId=database.ref("articleList").push()
+  articleWithId.set({
    userName : firebase.auth().currentUser.displayName,
    category: category,
    title : title,
@@ -84,8 +86,10 @@ alertAfterPost()
    description : description,
    article : body,
    publishedDate : currentDate,
- })
-
 
  })
+ articleWithId.child("LikeCounts").set({count:0})
 
+
+
+ })
