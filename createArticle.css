@@ -2,7 +2,9 @@
     position:fixed;
     bottom:0;
 }
-
+body{
+  font-family: 'Comfortaa', cursive;
+}
 .icon-bar {
   position: sticky;
   height: 0px;
@@ -10,7 +12,13 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
+#postContainer{
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  left: 20px;
+  width:100%;
+}
  .icon-bar a {
   display: row;
   text-align: center;

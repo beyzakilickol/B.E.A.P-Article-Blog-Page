@@ -3,7 +3,7 @@
 
          const database = firebase.database()
          const usersRef = database.ref("users")
-         let userRef = null 
+         let userRef = null
          let list = [];
          let articleContent = [];
 
@@ -18,7 +18,7 @@
 
          firebase.auth().onAuthStateChanged(function(user){
              if(user) {
-                 userRef = usersRef.child(user.uid)    
+                 userRef = usersRef.child(user.uid)
                  userRef.on('value', function(snapshot){
                      let articles = snapshot.val().articles
                      for (var article in articles){
@@ -38,13 +38,13 @@
                                 list.push(newObj)
                          }
                      }
-                
-                    
-    //  -------------------------------------------------------------------------------               
-            
+
+
+    //  -------------------------------------------------------------------------------
+
             let articleContentList = list.map((item) => {
                 return `
-                
+
 
 						<div class="image fit flush">
 							<img src="${item.image}"/>

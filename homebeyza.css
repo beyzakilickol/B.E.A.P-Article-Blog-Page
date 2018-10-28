@@ -1,6 +1,11 @@
 
 @import "compass/css3";
-
+body{
+  font-family: 'Comfortaa', cursive !important;
+  /* background-image: url(images/bg.jpg);
+  background-repeat: repeat-y;
+  background-size: cover; */
+}
 #header{
   display:flex;
     position: relative;
@@ -15,7 +20,7 @@
 
 }
 #allArticlesDiv{
-  overflow: scroll;
+  overflow: auto;
   margin-right: 20px;
   height:110%;
 }
@@ -134,6 +139,9 @@ border-style: solid;
 box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
 
 }
+.fas{
+  color:#8c8c8c;
+}
 a{
   color:black !important;
 }
@@ -147,7 +155,7 @@ a{
   box-shadow: 5px 5px 5px 0px rgb(153, 153, 153);
 }
 #carouselExampleIndicators{
-/* margin-top: 100px; */
+margin-top: 50px;
 margin-left: 10%;
 margin-right: 10%;
 /* margin-top: 1%; */
@@ -329,6 +337,10 @@ hr {
 }
 .card-text{
   font-size: 19px !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+
 }
 .containerAfterHeader{
   position:absolute;
@@ -357,4 +369,17 @@ hr {
 }
 .wholeArticleImgContainer{
   /* margin-left: 30%; */
+}
+@media (max-width:780px){
+#mainDiv{
+  display:flex;
+  flex-wrap: wrap;
+}
+.py-3{
+  margin-bottom: 50px;
+}
+.rightSideCardMainDiv{
+  margin-left:16%;
+
+}
 }
