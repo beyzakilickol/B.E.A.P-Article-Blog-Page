@@ -4,6 +4,7 @@
 #header{
   display:flex;
   position:fixed !important;
+  background-color: black;
   }
 #toFillSpace{
   height:450px;

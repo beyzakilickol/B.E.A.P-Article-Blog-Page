@@ -3,7 +3,7 @@
 
          const database = firebase.database()
          const usersRef = database.ref("users")
-         let userRef = null 
+         let userRef = null
          let list = [];
          let articleContent = [];
 
@@ -18,7 +18,7 @@
 
          firebase.auth().onAuthStateChanged(function(user){
              if(user) {
-                 userRef = usersRef.child(user.uid)    
+                 userRef = usersRef.child(user.uid)
                  userRef.on('value', function(snapshot){
                      let articles = snapshot.val().articles
                      for (var article in articles){
@@ -38,13 +38,13 @@
                                 list.push(newObj)
                          }
                      }
-                
-                    
-    //  -------------------------------------------------------------------------------               
-            
+
+
+    //  -------------------------------------------------------------------------------
+
             let articleContentList = list.map((item) => {
                 return `
-                
+
 
 						<div class="image fit flush">
 							<img src="${item.image}"/>
@@ -66,6 +66,17 @@
     }
 })
 
+//----------------------------------
+signOutButton.addEventListener("click",function(){
+    firebase.auth().signOut().then(response => {
+      dropdownMenuButton.style.display = "none"
+      login.style.display = "block"
+      getStarted.style.display = "block"
+      console.log("User is signed out")
+      window.location = "indexbeyza.html"
+    
+    }).catch(function(error){console.log("There is a problem")})
+    })
 
 
 //     const ref = new Firebase("https://radiant-torch-3037.firebaseio.com/");

@@ -3,6 +3,9 @@
     bottom:0;
 }
 
+body{
+  font-family: 'Comfortaa', cursive;
+}
 .icon-bar {
   position: sticky;
   height: 0px;
@@ -10,7 +13,14 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
+#postContainer{
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  left: 20px;
+  width:100%;
+  margin-top: 30px;
+}
  .icon-bar a {
   display: row;
   text-align: center;
@@ -47,4 +57,15 @@
 
 #userActivity {
   list-style-type: none;
+}
+
+#header{
+  background-color:transparent !important;
+}
+
+#dropdownMenuButton{
+  margin-top: 50px !important;
+}
+a.dropdown-item {
+  color: black !important;
 }

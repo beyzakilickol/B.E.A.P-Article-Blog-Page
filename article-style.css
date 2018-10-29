@@ -8,7 +8,9 @@
 body {
   /* margin: 0; */
   font-family: 'Comfortaa', cursive;
+  padding-top:0px !important;
 }
+#dropdown
 
 /* Style the top navigation bar */
 .topnav {
@@ -94,7 +96,9 @@ h2 {
     margin-left: 550px;
     margin-right: 100px;
 }
-
+a.dropdown-item {
+    color: black !important;
+  }
 
 .container {
     display: flex;
@@ -109,7 +113,7 @@ h2 {
 }
 
 #logo-container {
-    transform: scale(0.7);
+    transform: scale(1.0);
 }
 a:hover{
     text-decoration: none;
@@ -120,7 +124,7 @@ h5{
     
 }
 h5:hover {
-    color:#74b9ff;
+    color:salmon;
     cursor: pointer;
     text-decoration:none;
 
@@ -150,4 +154,19 @@ h4{
     margin-top: 400px;
     margin-left: 400px;
 }
+#header-container {
+    display: flex !important;
+}
 
+.your-profile-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#description{
+    color: gray;
+}
+
+#dateTime{
+    color: gray;
+}
