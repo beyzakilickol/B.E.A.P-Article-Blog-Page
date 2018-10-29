@@ -1,72 +1,194 @@
-<!DOCTYPE HTML>
-<!--
-	Caminar by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
-	<head>
-		<title>Caminar by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+<head>
+  <title>BEAP Home Page</title>
+  <link rel="stylesheet" type="text/css" href="homebeyza.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="indexbeyza.html">B.E.A.P your Thoughts<span>by TEMPLATED</span></a></div>
-			</header>
+  <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Main -->
-			<section id="main">
-				<div class="inner">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-				<!-- One -->
-					<section id="one" class="wrapper style1">
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Rammetto+One" rel="stylesheet">
+</head>
+<body>
+  <!-- <div id="divToStyle"> -->
 
-					</section>
+<div id="toFillSpace">
+<div id="header">
+  <a href="index.html"><img id="logo-container" src="BEAPlogo.png"/></a>
+  <nav style="height:60px;" id="navbar-header" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand active" href="index.html">Home<span class="sr-only">(current)</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a id="sportsButton" class="nav-item nav-link" href="#">Sports</a>
+      <a id="healthButton" class="nav-item nav-link" href="#">Health</a>
+      <a id="techButton" class="nav-item nav-link" href="#">Tech</a>
+      <a id="cultureButton" class="nav-item nav-link" href="#">Culture</a>
+      <a id="educationButton" class="nav-item nav-link" href="#">Education</a>
+      <a id="foodButton" class="nav-item nav-link" href="#">Food</a>
+      <a id="othersButton" class="nav-item nav-link" href="#">Others</a>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Untitled. All rights reserved. Images <a href="https://unsplash.com">Unsplash</a> Design <a href="https://templated.co">TEMPLATED</a>
-				</div>
-			</footer>
+    </div>
+  </div>
+</nav>
+  <div id="profile-container">
+    <button id="login" class ="login-btn">Login</button>
+    <button id="get-started" class ="login-btn">Get Started</button>
+    <div class="dropdown">
+    <button  class=" user-profile btn btn-secondary dropdown-toggle" style="display:none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Your profile
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="createArticle.html">Create a post</a>
+      <a class="dropdown-item" href="posts.html">View posted articles</a>
+          <a  id="signOutButton" class="dropdown-item" href="index.html">Sign out</a>
 
-		<!-- Scripts -->
+    </div>
+  </div>
+  </div>
+</div>
+  <!-- </div> -->
+</div>
 
-		<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
-		<script>
-			var config = {
-			apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
-			authDomain: "beap-44ce7.firebaseapp.com",
-			databaseURL: "https://beap-44ce7.firebaseio.com",
-			projectId: "beap-44ce7",
-			storageBucket: "beap-44ce7.appspot.com",
-			messagingSenderId: "920632593176"
-			};
-			firebase.initializeApp(config);
-		</script>
+<!--============= slides starts here ================-->
+<div style="height:100px;width:100%">
+<!-- this div is to fix navbar's position -->
+</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+  <li id="indicator1" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  <li  id="indicator2" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li id="indicator3" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 
-		<script type="text/javascript" src="article.js"></script>
-		<!--  -->
-			
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+</ol>
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <!-- Card Decks start here -->
+<h5>LATEST ARTICLES</h5>
+    <div id="card-container" class="card-deck">
 
-	</body>
+    </div>
+
+    <!-- Card Decks end here -->
+  </div>
+  <div class="carousel-item">
+    <!-- Card Decks start here -->
+<h5>LATEST ARTICLES</h5>
+    <div id="card-container2" class="card-deck">
+
+    </div>
+
+    <!-- Card Decks end here -->
+  </div>
+  <div class="carousel-item">
+    <!-- Card Decks start here -->
+<h5>LATEST ARTICLES</h5>
+    <div id="card-container3" class="card-deck">
+
+
+
+    </div>
+
+    <!-- Card Decks end here -->
+  </div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+</div>
+
+<!-- ==================================== -->
+<div id="registerCard">
+  <h2>Create an Account</h2>
+
+  <label>Enter fullname:</label><br />
+  <input id="nameTextBox" type="email" placeholder="Type your name here" onfocus="this.placeholder=''"/></label>
+
+  <label>Enter your email:
+  <input id="emailTextBox" type="email" placeholder="example@gmail.com" onfocus="this.placeholder=''"/></label>
+  <label>Create your password:
+  <input id ="passwordTextBox" type="password" placeholder="Create a password..." onfocus="this.placeholder=''"/></label>
+  <div style="display:flex;justify-content:center;"><button class="style" id="registerButton">Sign up</button></div>
+  <a  id="getStartedCloseIcon" href="#"><i class="fas fa-times"></i></a>
+</div>
+
+<div id="logInCard">
+  <h2>Login</h2>
+
+  <label> Enter your email:
+  <input id ="loginEmailTextBox" type="email" placeholder="example@gmail.com" onfocus="this.placeholder=''"/></label>
+  <label>Enter your password:
+  <input id = "loginPasswordTextBox" type="password" placeholder="Enter your password..." onfocus="this.placeholder=''"/></label>
+  <div style="display:flex; justify-content:center;">
+<label>
+  <button class="style" id="signInButton">Sign in</button></label></div>
+  <div style="text-align:center">
+
+<a id="noAccount" href="#"><u>Don't have an account?</u></a>  </div>
+  <a id="loginCloseIcon" href="#"><i class="fas fa-times"></i></a>
+
+</div>
+<!-- ************************************************ -->
+
+<div id="mainDiv" class="MainDivBelowSlides">
+
+<section id ="allArticlesDiv" class="sectionDiv">
+
+</section>
+
+
+<!-- homepage right side articles body starts here -->
+<div  class="rightSideCardMainDiv" id="rightSideCardMainDivId">
+<h3 id="trendingTitle"><i>Popular on BEAP</i></h3>
+<hr />
+
+
+
+
+</div>
+
+</div>
+<div style="margin-top:5%;" id="containerAfterHeader">
+</div>
+<!-- =========================================================================== -->
+
+<!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>
+   <script>
+
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyCsT8E2gAG9kGMHZXAbY4m4wC9sQe_lGUE",
+   authDomain: "beap-44ce7.firebaseapp.com",
+   databaseURL: "https://beap-44ce7.firebaseio.com",
+   projectId: "beap-44ce7",
+   storageBucket: "beap-44ce7.appspot.com",
+   messagingSenderId: "920632593176"
+ };
+ firebase.initializeApp(config);
+
+</script>
+
+<script src="homebeyza.js"></script>
+
+
+
+</body>
 </html>

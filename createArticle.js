@@ -12,23 +12,23 @@ const articlesRef = database.ref("articleList")
 var currentUsername = null
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log(user);
-    // User is signed in.
-    var displayName = user.displayName;
-    currentUsername = displayName
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    logInCard.style.display = "none"
-    slideContainer.style.opacity = "1"
-    login.style.display = "none"
-    getStarted.style.display = "none"
-    dropdownMenuButton.style.display = "block"
-    currentUserId = firebase.auth().currentUser.uid
-    dropdownMenuButton.innerHTML = "Welcome " + user.displayName
+    // console.log(user);
+    // // User is signed in.
+    // var displayName = user.displayName;
+    // currentUsername = displayName
+    // var email = user.email;
+    // var emailVerified = user.emailVerified;
+    // var photoURL = user.photoURL;
+    // var isAnonymous = user.isAnonymous;
+    // var uid = user.uid;
+    // var providerData = user.providerData;
+    // logInCard.style.display = "none"
+    // slideContainer.style.opacity = "1"
+    // login.style.display = "none"
+    // getStarted.style.display = "none"
+    // dropdownMenuButton.style.display = "block"
+    // currentUserId = firebase.auth().currentUser.uid
+    // dropdownMenuButton.innerHTML = "Welcome " + user.displayName
     //+ database.ref("users").child(currentUserId).child('userName').val().toUpperCase()
     // ...
   } else {
@@ -37,38 +37,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 
 });
-
-function alertAfterPost() {
-  setTimeout(function(){
-    alert("Your Article has Been Submitted")
-  });
-}
-
-function dateTimeNow() {
-  var dateTime = new Date().toLocaleString()
-  return dateTime
-}
-
-submitButton.addEventListener('click', function() {
-  let category = categoryTitle.value
-  let title = articleTitle.value
-  let url = articleUrl.value
-  let description = articleDescription.value
-  let body = articleBody.value
-  articleForm.reset()
-
-  let articleRef = articlesRef.push()
-  articleRef.set({
-    category : category,
-    title : title,
-    img : url,
-    description : description,
-    article : body,
-    userName : currentUsername,
-    publishedDate : dateTimeNow()
-
-  })
-})
 
 function alertAfterPost() {
  setTimeout(function(){
@@ -88,6 +56,7 @@ submitButton.addEventListener('click', function() {
  let body = articleBody.value
  let category = categoryTitle.value
 
+ let currentDate = dateTimeNow()
  articleForm.reset()
 
  let currentUser = firebase.auth().currentUser
@@ -102,22 +71,25 @@ articleRef.set({
   img : url,
   description : description,
   article : body,
-  publishedDate : dateTimeNow(),
+  publishedDate : currentDate,
+
 
 })
 
-
- let articleList = database.ref("articleList").push().set({
+alertAfterPost()
+let articleWithId=database.ref("articleList").push()
+  articleWithId.set({
    userName : firebase.auth().currentUser.displayName,
    category: category,
    title : title,
    img : url,
    description : description,
    article : body,
-   publishedDate : dateTimeNow(),
- })
-
+   publishedDate : currentDate,
 
  })
-alertAfterPost()
-})
+ articleWithId.child("LikeCounts").set({count:0})
+
+
+
+ })

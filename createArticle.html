@@ -2,34 +2,20 @@
   <head>
   <title>BEAP Home Page</title>
   <link rel="stylesheet" type="text/css" href="homebeyza.css"/>
+  <link rel="stylesheet" type="text/css" href="createArticle.css"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Rammetto+One" rel="stylesheet">
 </head>
 <body>
 
 <div id="header">
-  <img id="logo-container" src="BEAPlogo.png"/>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand active" href="#">Home<span class="sr-only">(current)</span></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Sports</a>
-      <a class="nav-item nav-link" href="#">Health</a>
-      <a class="nav-item nav-link" href="#">Tech</a>
-      <a class="nav-item nav-link" href="#">Culture</a>
-      <a class="nav-item nav-link" href="#">Education</a>
-      <a class="nav-item nav-link" href="#">Food</a>
-      <a class="nav-item nav-link" href="#">Others</a>
+  <a href="index.html"><img id="logo-container" src="BEAPlogo.png"/></a>
 
-    </div>
-  </div>
 </nav>
   <div id="profile-container">
     <button id="login" style="display:none;" class ="login-btn">Login</button>
@@ -41,38 +27,35 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="createArticle.html">Create a post</a>
       <a class="dropdown-item" href="posts.html">View posted articles</a>
-      <a  id="signOutButton" class="dropdown-item" href="#">Sign out</a>
+      <!-- <a  id="signOutButton" class="dropdown-item" href="#">Sign out</a> -->
+      <a  id="signOutButton" class="dropdown-item" href="index.html">Sign out</a>
 
     </div>
   </div>
   </div>
 </div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
   <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 
-</ol>
-<div class="carousel-inner">
-  <div class="carousel-item active">
-    <div id="userContainer">
-        <div id="userContainer1">
-          <div class="icon-bar">
-            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
-            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
-          </div>
+</ol> -->
+<!-- <div id="createPostDiv" class="carousel-inner">
+  <div class="carousel-item active"> -->
+    <div id="postContainer">
+        <div id="postContainer2">
 
-    <h2> Publish an  Article </h2>
-    <p> Complete the sections below to publish an article </p>
+    <h2 style="margin-bottom:20px;text-align:center"> Publish an  Article </h2>
+    <p style="margin-bottom:20px;"> Complete the sections below to publish an article </p>
   </div>
-        <div id="userContainer3">
+        <div  id="userContainer3">
           <form id="articleForm">
       <label> Choose a Category : </label>
-        <select id="categoryTitle" name= "Category" required>
+        <select style="margin-bottom:20px;" id="categoryTitle" name= "Category" required>
+
+          <option selected disabled value>Select an option</option>
           <option value="Sports">Sports</option>
           <option value="Health">Health</option>
           <option value="Techs">Techs</option>
@@ -83,21 +66,22 @@
         </select>
 
     <br>
-      <label> Description : </label>
-      <input id="articleDescription" type="text" placeholder="Enter A Summary" required>
+      <label > Description : </label>
+      <input style="margin-bottom:20px;border-style:solid;width:450px" id="articleDescription" type="text" placeholder="Enter A Summary" required>
     <br>
       <label> Insert an URL Image : </label>
-      <input type="url" name="url" id="articleUrl" placeholder="https://example.com" required>
+      <input style="margin-bottom:20px;border-style:solid;width:450px" type="url" name="url" id="articleUrl" placeholder="https://example.com" required>
     <br>
       <label> Enter Article Title : </label>
-      <input id="articleTitle" type="text" placeholder="Title of Article" minLength="4" required>
+      <input style="margin-bottom:20px;border-style:solid;width:450px" id="articleTitle" type="text" placeholder="Title of Article" minLength="4" required>
     <br>
-      <textarea id="articleBody" placeholder="Enter Article Here....." rows="25" cols="75" minLength="100" required></textarea>
+      <textarea style="margin-bottom:20px;border:solid 1px black;width:90%;" id="articleBody" placeholder="Enter Article Here....." rows="25" cols="75" minLength="100" required></textarea>
     <br>
-      <button id="submitButton" type="button" required>Post Article</button>
+      <button style="margin-bottom:20px;" id="submitButton" type="button" required>Post Article</button>
     </form>
         </div>
       </div>
+
 
 <!-- ==================================== -->
 <div id="registerCard">
@@ -134,10 +118,10 @@
 
 
 <!-- =========================================================================== -->
-<section>
 
-  </div>
-</section>
+  <!-- </div>
+  </div> -->
+
 <!-- Optional JavaScript -->
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
