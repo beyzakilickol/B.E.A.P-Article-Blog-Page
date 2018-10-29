@@ -66,6 +66,17 @@
     }
 })
 
+//----------------------------------
+signOutButton.addEventListener("click",function(){
+    firebase.auth().signOut().then(response => {
+      dropdownMenuButton.style.display = "none"
+      login.style.display = "block"
+      getStarted.style.display = "block"
+      console.log("User is signed out")
+      window.location = "indexbeyza.html"
+    
+    }).catch(function(error){console.log("There is a problem")})
+    })
 
 
 //     const ref = new Firebase("https://radiant-torch-3037.firebaseio.com/");

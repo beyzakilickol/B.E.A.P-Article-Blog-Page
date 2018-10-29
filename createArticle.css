@@ -18,6 +18,7 @@ body{
   position:absolute;
   left: 20px;
   width:100%;
+  margin-top: 30px;
 }
  .icon-bar a {
   display: row;
@@ -55,4 +56,15 @@ body{
 
 #userActivity {
   list-style-type: none;
+}
+
+#header{
+  background-color:transparent !important;
+}
+
+#dropdownMenuButton{
+  margin-top: 50px !important;
+}
+a.dropdown-item {
+  color: black !important;
 }
