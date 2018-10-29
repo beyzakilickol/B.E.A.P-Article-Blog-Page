@@ -91,6 +91,7 @@ signInButton.addEventListener("click", function(){
     getStarted.style.display = "none"
     dropdownMenuButton.style.display = "block"
     containerAfterHeader.style.opacity = "1"
+    mainDiv.style.opacity="1"
          console.log("User Signed In Successfully!!")
 
 
@@ -110,7 +111,7 @@ firebase.auth().signOut().then(response => {
   login.style.display = "block"
   getStarted.style.display = "block"
   console.log("User is signed out")
-  window.location = "indexbeyza.html"
+  // window.location = "indexbeyza.html"
 
 }).catch(function(error){console.log("There is a problem")})
 })
