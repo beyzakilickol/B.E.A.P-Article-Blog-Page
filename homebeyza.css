@@ -2,12 +2,12 @@
 @import "compass/css3";
 body{
   font-family: 'Comfortaa', cursive !important;
-  background-image: url(../../images/bg.jpg);
+  background-image: url(./images/bg.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
 }
 
 #dropdownMenuButton{
@@ -144,7 +144,7 @@ font-family: 'Comfortaa', cursive !important;
     transform: scale(0.8);
       margin-top: 30px;
       margin-left: 30px;
-      
+
   }
 }
 .card-img-top{
@@ -194,19 +194,6 @@ position:relative;
   margin-right: -13%;
 }
 
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 30px;
-  color: black;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 30px;
-  color: black;
-}
 @media (max-width: 1073px){
 #carouselExampleIndicators{
   transform: scale(1);
@@ -336,17 +323,23 @@ transform: translateX(-50%)
     width:80%
   }
 }
+.navbar-nav{
+  background-color: black;
+}
+.navbar-toggler{
+  background-color: white !important;
+}
 #indicator1{
-  background-color: black !important;
+  background-color: white !important;
   opacity: 0.3;
 }
 #indicator2{
-  background-color: black !important;
+  background-color: white !important;
   opacity: 0.3;
   margin-left: 10px;
 }
 #indicator3{
-  background-color: black !important;
+  background-color: white !important;
   opacity: 0.3;
   margin-left: 10px;
 }
@@ -408,4 +401,3 @@ hr {
 
 }
 }
-
