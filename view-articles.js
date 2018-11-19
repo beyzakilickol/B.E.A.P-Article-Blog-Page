@@ -1,5 +1,3 @@
-
-
 let articles = document.getElementById('articles');
 
 const database = firebase.database()
@@ -45,8 +43,8 @@ firebase.auth().onAuthStateChanged(function(user){
                 return `
                 <div>
                 <a href="article.html?articleId=${item.articleId}"><h5 id="title">${item.title}</h5></a>
-                <p id=description>${item.description}</p>
-                <p id="dateTime">${item.publishedDate}</p>
+                <p id=description style="color:white">${item.description}</p>
+                <p id="dateTime" style="color:white">${item.publishedDate}</p>
                 </div> <hr/>`;
             })
 
@@ -67,6 +65,6 @@ signOutButton.addEventListener("click",function(){
       getStarted.style.display = "block"
       console.log("User is signed out")
       window.location = "indexbeyza.html"
-    
+
     }).catch(function(error){console.log("There is a problem")})
     })

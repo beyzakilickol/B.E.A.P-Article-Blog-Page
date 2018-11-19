@@ -1,8 +1,8 @@
 
 * {
     box-sizing: border-box;
-    
-    
+
+
 }
 
 body {
@@ -44,23 +44,23 @@ body {
 .content {
     margin-top: 10px;
     background-color: white;
-   
-   
-    
+
+
+
 }
 
 /* Style the footer */
 .footer {
     background-color: white;
     padding: 10px;
-    
+
 }
 
 h2 {
     font-family: 'Rammetto One', cursive;
     text-align: center;
     color: #74b9ff;
-    
+
 }
 .footer button {
     border: transparent;
@@ -109,7 +109,7 @@ a.dropdown-item {
     margin-top: 60px;
     padding-bottom: 20px;
     font-family: inherit;
-    border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+    border-bottom: 2px rgba(252, 252, 252) solid;
 }
 
 #logo-container {
@@ -120,8 +120,8 @@ a:hover{
 }
 
 h5{
-    font-weight: bold; 
-    
+    font-weight: bold;
+
 }
 h5:hover {
     color:salmon;

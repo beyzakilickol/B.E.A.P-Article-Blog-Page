@@ -9,7 +9,9 @@ body{
   background-size: cover;
 
 }
-
+.bttn{
+  color: black !important;
+}
 #dropdownMenuButton{
   margin-right: 30px;
 }

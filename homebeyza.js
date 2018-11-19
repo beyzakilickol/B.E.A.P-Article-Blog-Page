@@ -252,7 +252,7 @@ function displayWholeArticle2(button){
   body.removeChild(mainDiv)
   body.removeChild(containerAfterHeader)
   navbar.style.display="none"
-  
+
   let buttonPublishedDate = button.previousElementSibling.innerHTML
   //let buttonPublishedDate = button.parentElement.parentElement.children[1].children[2].innerHTML
   getWholeArticleInfo2(buttonPublishedDate)
@@ -1831,7 +1831,7 @@ lastArticles.map(function(each){
          <h5 class="card-title">${each.title}</h5>
          <p class="card-text">${each.description} <br><i>by ${each.userName}</i> </p>
          <p>${each.publishedDate}</p>
-         <a href="#" onclick="displayWholePopularArticle(this)" class="bttn">Details..</a>
+         <a href="#" onclick="displayWholePopularArticle(this)" class="bttn"><b>Details..</b></a>
        </div>
      </div>
       `
