@@ -17,7 +17,7 @@ https://youtu.be/_TSqOdyXeng
 [Emre Akurek](https://github.com/emreyeprem), [Arlisha Hayles](https://github.com/Arlisha2019).
 
 ## Database: 
-This project is built using "Firebase".
+This project is built using "Firebase Real Time Database".
 ## Featured programs: 
 HTML,CSS,Bootstrap,JavaScript
 
