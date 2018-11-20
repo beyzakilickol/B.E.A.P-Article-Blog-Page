@@ -12,8 +12,9 @@ http://beap.surge.sh/
 ## Introduction video of the project: 
 https://youtu.be/_TSqOdyXeng
 
-## This site was built using 
-(https://pages.github.com/).
+## This site was built using [GitHub Pages]
+(https://github.com/beyzakilickol), (https://github.com/pamelahutchinson), 
+(https://github.com/emreyeprem), (https://github.com/Arlisha2019).
 
 ## Database: 
 This project is built using "Firebase".
