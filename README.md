@@ -13,8 +13,8 @@ http://beap.surge.sh/
 https://youtu.be/_TSqOdyXeng
 
 ## This site was built by
-(https://github.com/beyzakilickol), (https://github.com/pamelahutchinson), 
-(https://github.com/emreyeprem), [Arlisha Hayles](https://github.com/Arlisha2019).
+[Beyza Kilickol](https://github.com/beyzakilickol), [Pamela Hutchinson](https://github.com/pamelahutchinson), 
+[Emre Akurek](https://github.com/emreyeprem), [Arlisha Hayles](https://github.com/Arlisha2019).
 
 ## Database: 
 This project is built using "Firebase".
