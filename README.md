@@ -1,5 +1,5 @@
 # B.E.A.P-Article-Blog-Page
-Purpose of the app:
+..* Purpose of the app:
 ----------------------
 
 
