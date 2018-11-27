@@ -8,9 +8,8 @@
 
 ## Site Preview
 
-<img src="BEAPlogo.png" height="200px" width="200px">
+<img src="BEAPlogo.png" height="400px" width="600px">
 
-![](BEAPlogo.png){:height="200%" width="200%"}
    
 ## Live link: 
 http://beap.surge.sh/
