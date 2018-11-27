@@ -11,7 +11,7 @@
 <img src="BEAPlogo.png" height="400px" width="600px">
    
 ## Live link: 
--["B.E.A.P Your Thoughts"] http://beap.surge.sh/
+- ["B.E.A.P Your Thoughts"](http://beap.surge.sh/)
 
 ## Introduction video of the project: 
 - https://youtu.be/_TSqOdyXeng
