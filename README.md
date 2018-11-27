@@ -23,7 +23,7 @@
 - [Arlisha Hayles](https://github.com/Arlisha2019)
 
 ## Database: 
-This project is built using "Firebase Real Time Database"
+This project was built using "Firebase Real Time Database"
 
 ## Featured programs: 
 - HTML, CSS, Bootstrap, JavaScript
