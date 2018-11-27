@@ -1,4 +1,4 @@
-## :speech_balloon: :newspapaer: :speech_balloon: B.E.A.P-Article-Blog-Page :speech_balloon: :newspapaer: :speech_balloon:
+## :speech_balloon: :newspaper: :speech_balloon: B.E.A.P-Article-Blog-Page :speech_balloon: :newspaper: :speech_balloon:
 * **Purpose of the app:** 
    This app was created to encourage users to explore their own ideas. It gives them an opportunity to find a platform to share their ideas publicly. In addition, rather than hire a technical writer or journalist, this app also allows users to create their own news articles on our website “B.E.A.P Your Thought”. 
 * **How to use:**
