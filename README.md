@@ -8,7 +8,7 @@
 
 ## Site Preview
 
-<img src="BEAPlogo.png" height="400px" width="600px">
+<img src="BEAPlogo.png" height="200px" width="400px">
    
 ## Live link: 
 - ["B.E.A.P Your Thoughts"](http://beap.surge.sh/)
